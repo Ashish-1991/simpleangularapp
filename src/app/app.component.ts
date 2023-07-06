@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <app-myform></app-myform>
+    <app-uservalidation></app-uservalidation>
     <router-outlet></router-outlet>
   `,
   styles: []

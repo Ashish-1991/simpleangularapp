@@ -28,7 +28,7 @@ export class MyformComponent implements OnInit{
       bookingAmount:new FormControl(''),
       bookingDate:new FormControl(''),
       mobileNumber:new FormControl(''),
-      guestName:['',[Validators.required,Validators.minLength(3)]],
+      guestName:['',[Validators.required,Validators.minLength(3) ]],
       address : this.fb.group({
       addressLine1:new FormControl(''),
       addressLine2:new FormControl(''),

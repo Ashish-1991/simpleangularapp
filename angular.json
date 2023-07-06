@@ -91,7 +91,8 @@
               "browserTarget": "myapp:build:production"
             },
             "development": {
-              "browserTarget": "myapp:build:development"
+              "browserTarget": "myapp:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
