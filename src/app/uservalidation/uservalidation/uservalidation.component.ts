@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UservalidationserviceService } from '../service/uservalidationservice.service';
 import { TokenBean } from '../tokenbean';
-import { Observable } from 'rxjs';
+import { LocalStorageService } from '../service/local-storage.service';
+
+
 
 @Component({
   selector: 'app-uservalidation',
@@ -9,32 +11,32 @@ import { Observable } from 'rxjs';
   styles: [
   ]
 })
-export class UservalidationComponent implements OnInit{
+export class UservalidationComponent implements OnInit {
 
-  token : TokenBean[] = []; 
+  tokenObj: TokenBean = new TokenBean;
 
 
   ngOnInit(): void {
-    
+
 
   }
 
-  constructor(private userValService : UservalidationserviceService){
-    
+  constructor(private userValService: UservalidationserviceService, private localService: LocalStorageService) {
+
   }
 
-  login(){
+  login() {
     console.log("i am in login method")
-    // console.log(this.userValService.login());
+    this.getData();
     
-    this.userValService.login().subscribe((data:any)=>{
-      console.log(data);
-      this.token = data;
-      console.log(this.token);
-    });
-    
-    
+  }
 
+  getData() {
+    this.userValService.login().subscribe(data => {
+      this.tokenObj.token = data.token as string;
+      this.localService.saveData("token", this.tokenObj.token);
+      console.log(this.localService.getData("token") as string);
+    });
   }
 
 }

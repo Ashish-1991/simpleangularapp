@@ -1,3 +1,3 @@
-export interface TokenBean{
-    tokenStr: String;
+export class TokenBean{
+    token: string = '';
 }

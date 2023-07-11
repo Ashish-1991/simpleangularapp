@@ -12,6 +12,6 @@ export class LocalStorageService {
   }
 
   public getData(key:string){
-    localStorage.getItem(key);
+    return localStorage.getItem(key);
   }
 }
